@@ -14,32 +14,35 @@ from pathlib import Path
 import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v$iu61k_n!o5b0-cky0j)!cxeepebpk!81=-+ivj&jjwcg364*'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-import os
-
+ 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
  
  
-EMAIL_FROM = 'hishamarshad46@gmail.com'
+EMAIL_FROM = os.environ.get('EMAIL_FROM')
 EMAIL_BCC = ''  # Leave this empty if you don't need BCC
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'hishamarshad46@gmail.com'
-EMAIL_HOST_PASSWORD = 'xqxgcseaedsleskx'  # Replace 'your_gmail_password' with your Gmail password
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # Replace 'your_gmail_password' with your Gmail password
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-
+EMAIL_PORT = 587
 # Application definition
 
 
@@ -76,8 +79,8 @@ CHANNEL_LAYERS = {
         },
     },
 }
-STREAM_API_KEY = 'b82m6m95jajk' # https://getstream.io/dashboard/
-STREAM_API_SECRET = 'eduj6gvkjd87ewfuruum3p4r8tj2g479sa8ehquxycgsb3jbuwp4mf3js9q88mhj'
+STREAM_API_KEY = os.environ.get('STREAM_API_KEY') # https://getstream.io/dashboard/
+STREAM_API_SECRET = os.environ.get('STREAM_API_SECRET')
  
 AUTH_USER_MODEL = 'accounts.myUser'
 REST_FRAMEWORK = {
@@ -87,8 +90,7 @@ REST_FRAMEWORK = {
     ),
 }
  
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '726758745941-6d4jjuqfuveumoikug4jmteoo1mj5kt2.apps.googleusercontent.com'
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+ 
 LOGIN_URL = 'login'  # Set this to the URL where users are redirected if they need to log in
 LOGIN_REDIRECT_URL = '/'  # Set this to the desired URL where users are redirected after a successful login
 AUTH_EMAIL_VERIFICATION = True
