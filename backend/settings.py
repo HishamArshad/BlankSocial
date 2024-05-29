@@ -140,20 +140,20 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    #    'default': dj_database_url.config(
-    #     # Replace this value with your local database's connection string.
-    #     default='postgresql://postgres:postgres@localhost:5432/backend',
-    #     conn_max_age=600
-    # )
-    'default': {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "social",
+       'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://mysite_n7e9_user:o5RnV0YH5G0PZWfisOWDGooZjVSKFaTA@dpg-cpbg1g5ds78s73eunkug-a.oregon-postgres.render.com/mysite_n7e9',
+        conn_max_age=600
+    )
+    # 'default': {
+    #     "ENGINE": "django.db.backends.mysql",
+    #     "NAME": "social",
    
-        "HOST": "localhost",
-        "PASSWORD": "kkllBB#46",
-        "USER": "root",
-        "PORT": 3306,
-    },
+    #     "HOST": "localhost",
+    #     "PASSWORD": "kkllBB#46",
+    #     "USER": "root",
+    #     "PORT": 3306,
+    # },
     
 }
 
